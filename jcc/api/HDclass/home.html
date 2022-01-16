@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
 <meta content="yes" name="apple-mobile-web-app-capable">
 <meta content="black" name="apple-mobile-web-app-status-bar-style">
 <title>课程导航</title>
@@ -16,19 +16,18 @@ body { padding:0px;margin: 0px; }
 #lyrow input, #lyrow textarea { border:rgb(235, 235, 235) 1px solid;border-radius: 3px;padding: 5px 8px;outline: 0; } 
 #lyrow input:hover, #lyrow textarea:hover { border: 1px solid #6bc1f2; } 
 /*--编辑--*/ 
-#lyrow .computer { background-image:url(https://www.58html.com/folder/imgcss/202108/a8e4e71c5253fac8705e7562a8be78ba.png);margin:auto auto auto auto;overflow-x:auto;overflow-y:auto;position:static;user-select:none;width:100%;background-attachment:local;background-repeat:no-repeat;background-size:contain;height:35%; } 
-#lyrow .yl { width:100%;overflow-x:auto;overflow-y:auto;position:static;user-select:none;background-image:url(https://www.58html.com/folder/imgcss/202108/e62c1ece7b3feded95f72432d4deb958.png);background-size:contain;margin:auto auto auto auto;background-attachment:local;background-repeat:no-repeat;height:35%; } 
-#lyrow .qx { width:100%;background-image:url(https://www.58html.com/folder/imgcss/202108/072c5bebbfd874559af239bca79b2dbf.png);background-size:contain;background-repeat:no-repeat;background-attachment:local;margin:auto auto auto auto;height:35%;overflow-x:auto;overflow-y:auto;position:static; } 
+#lyrow .computer { background-image:url(./images/ComputerClass.png);margin:auto auto auto auto;overflow-x:auto;overflow-y:auto;position:static;user-select:none;width:100%;background-attachment:local;background-repeat:no-repeat;background-size:contain;height:35%; } 
+/*#lyrow .yl { width:100%;overflow-x:auto;overflow-y:auto;position:static;user-select:none;background-image:url(https://www.58html.com/folder/imgcss/202108/e62c1ece7b3feded95f72432d4deb958.png);background-size:contain;margin:auto auto auto auto;background-attachment:local;background-repeat:no-repeat;height:35%; } 
+#lyrow .qx { width:100%;background-image:url(https://www.58html.com/folder/imgcss/202108/072c5bebbfd874559af239bca79b2dbf.png);background-size:contain;background-repeat:no-repeat;background-attachment:local;margin:auto auto auto auto;height:35%;overflow-x:auto;overflow-y:auto;position:static; } */
 </style>
 <!--下载font-awesome.css图标包-->
 <!--https://www.58html.com/html/template/font-awesome.zip-->
-<link rel="stylesheet" href="https://www.58html.com/gui/css/font-awesome/css/font-awesome.css">
 <div id="lyrow">
 
 
 <div class="computer" onclick="jn()"> </div>
-<div class="yl" onclick="yl()"> </div>
-<div class="qx" onclick="qx()"> </div>
+<!--<div class="yl" onclick="yl()"> </div>
+<div class="qx" onclick="qx()"> </div>-->
 </div>
 </body>
 <script type="text/javascript" src="api/api.js"></script>
@@ -37,7 +36,18 @@ body { padding:0px;margin: 0px; }
 
     apiready = function () {
 
-    
+    api.addEventListener({
+    name:'offline'
+}, function(ret, err){
+
+    api.toast({
+    msg : '网络连接断开',
+    duration : 5000,
+    location : 'middle'
+    });
+    api.rebootApp();
+});
+
         api.setRefreshHeaderInfo({
                         visible: true,
                         bgColor: '#ffffff',
@@ -56,7 +66,7 @@ body { padding:0px;margin: 0px; }
          jn = function(){
           api.openTabLayout({
     name: 'jn',
-    url: 'https://jiajianet.github.io/jiajiacloud/jcc/api/HDclass/jiajianet/index.html',
+    url: 'widget://pages/HDclass/jiajianet/index.html',
     title: '遇见计算机',
     hideNavigationBar: false,
     bgColor: "#fff",
@@ -71,6 +81,7 @@ body { padding:0px;margin: 0px; }
     }
 });
 }
+/*
 yl = function(){
   api.openTabLayout({
     name: 'yl',
@@ -105,6 +116,7 @@ yl = function(){
         hideBackButton: false
     }})
         }
+        */
         
 
         var td = api.require('talkingData');
