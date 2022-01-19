@@ -255,6 +255,7 @@
 					showTime: true
 				}, function (ret, err) {
 					setTimeout('api.refreshHeaderLoadDone()', '500');
+					window.location.reload();//刷新页面
 				});
 
 				api.setScreenOrientation({
