@@ -127,7 +127,7 @@
 
 		// Toggle.
 			$navPanelToggle = $(
-				'<a href="#navPanel" id="navPanelToggle">选择科目</a>'
+				'<a href="#navPanel" id="navPanelToggle">切换科目</a>'
 			)
 				.appendTo($wrapper);
 
