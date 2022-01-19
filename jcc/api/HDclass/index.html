@@ -254,8 +254,9 @@
 					textUp: '松开刷新...',
 					showTime: true
 				}, function (ret, err) {
-					setTimeout('api.refreshHeaderLoadDone()', '500');
-					window.location.reload();//刷新页面
+					setTimeout('api.refreshHeaderLoadDone()', '300');
+					setTimeout('window.location.reload();', '500');
+					//刷新页面
 				});
 
 				api.setScreenOrientation({
