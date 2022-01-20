@@ -232,7 +232,24 @@
 		<script src="assets/js/main.js"></script>
 		<script type="text/javascript" src="api/api.js"></script>
 		<script type="text/javascript">
-
+			Jnt = function () {
+				api.openTabLayout({
+					name: 'jn',
+					url: './jiajianet/index.html',
+					title: '遇见计算机',
+					hideNavigationBar: false,
+					bgColor: "#fff",
+					bounces: true,
+					scrollEnabled: true,
+					navigationBar: {
+						background: "#009ad6",
+						shadow: "rgba(0,0,0,0)",
+						color: "#fff",
+						fontSize: 18,
+						hideBackButton: false
+					}
+				});
+			}
 			apiready = function () {
 
 				api.addEventListener({
