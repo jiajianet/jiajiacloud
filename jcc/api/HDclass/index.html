@@ -235,27 +235,6 @@
 
 			apiready = function () {
 
-
-				function jn() {
-					api.openTabLayout({
-						name: 'jn',
-						url: './jiajianet/index.html',
-						title: '遇见计算机',
-						hideNavigationBar: false,
-						bgColor: "#fff",
-						bounces: true,
-						scrollEnabled: true,
-						navigationBar: {
-							background: "#009ad6",
-							shadow: "rgba(0,0,0,0)",
-							color: "#fff",
-							fontSize: 18,
-							hideBackButton: false
-						}
-					});
-				}
-
-
 				api.addEventListener({
 					name: 'offline'
 				}, function (ret, err) {
@@ -285,7 +264,24 @@
 					orientation: 'auto'
 				});
 				api.setKeepScreenOn({ keepOn: true });
-
+				jn = function () {
+					api.openTabLayout({
+						name: 'jn',
+						url: './jiajianet/index.html',
+						title: '遇见计算机',
+						hideNavigationBar: false,
+						bgColor: "#fff",
+						bounces: true,
+						scrollEnabled: true,
+						navigationBar: {
+							background: "#009ad6",
+							shadow: "rgba(0,0,0,0)",
+							color: "#fff",
+							fontSize: 18,
+							hideBackButton: false
+						}
+					});
+				}
 				/*
 				yl = function(){
 				  api.openTabLayout({
