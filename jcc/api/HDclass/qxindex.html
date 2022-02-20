@@ -50,7 +50,7 @@
 							<li><a href="elements.html">Elements Reference</a></li>-->
 
 
-				<li><a href="JavaScript:jnload()">乐理</a></li>
+				<li><a href="JavaScript:ylload()">乐理</a></li>
 				<!--<li><a href="generic.html">Generic Page</a></li>
 							<li><a href="elements.html">Elements Reference</a></li>-->
 			</ul>
@@ -243,15 +243,10 @@
 		<script type="text/javascript">
 
 			apiready = function () {
-				document.onreadystatechange = function () {
-					if (document.readyState == "complete") {
-						api.hideProgress();
-					}
-				};
 
-				/*setTimeout(function () {
+				setTimeout(function () {
 					api.hideProgress();
-				}, 1500);*/
+				}, 1500);
 				api.addEventListener({
 					name: 'offline'
 				}, function (ret, err) {

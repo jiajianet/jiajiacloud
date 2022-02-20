@@ -244,10 +244,11 @@
 		<script type="text/javascript">
 
 			apiready = function () {
-				Jnt = function () {
-					setTimeout(function () {
+				setTimeout(function () {
 						api.hideProgress();
 					}, 1500);
+				Jnt = function () {
+					
 					api.openTabLayout({
 						name: 'jn',
 						url: './jiajianet/index.html',
