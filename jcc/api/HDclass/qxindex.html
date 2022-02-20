@@ -40,7 +40,7 @@
 		<!-- Nav -->
 		<nav id="nav">
 			<ul class="links">
-				<li><a href="index.html">计算机</a></li>
+				<li><a href="JavaScript:jnload()">计算机</a></li>
 				<!--<li><a href="generic.html">Generic Page</a></li>
 							<li><a href="elements.html">Elements Reference</a></li>-->
 
@@ -50,7 +50,7 @@
 							<li><a href="elements.html">Elements Reference</a></li>-->
 
 
-				<li><a href="ylindex.html">乐理</a></li>
+				<li><a href="JavaScript:jnload()">乐理</a></li>
 				<!--<li><a href="generic.html">Generic Page</a></li>
 							<li><a href="elements.html">Elements Reference</a></li>-->
 			</ul>
@@ -243,9 +243,12 @@
 		<script type="text/javascript">
 
 			apiready = function () {
-				setTimeout(function () {
+				window.onload = function () {
 					api.hideProgress();
-				}, 1500);
+				}
+				/*setTimeout(function () {
+					api.hideProgress();
+				}, 1500);*/
 				api.addEventListener({
 					name: 'offline'
 				}, function (ret, err) {
