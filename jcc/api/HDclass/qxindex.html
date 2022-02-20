@@ -243,7 +243,7 @@
 		<script type="text/javascript">
 
 			apiready = function () {
-
+				api.refreshHeaderLoadDone();
 				setTimeout(function () {
 					api.hideProgress();
 				}, 1500);
@@ -267,8 +267,7 @@
 					textUp: '松开刷新...',
 					showTime: true
 				}, function (ret, err) {
-					setTimeout('api.refreshHeaderLoadDone()', '300');
-					setTimeout('window.location.reload();', '500');
+					window.location.reload();
 					//刷新页面
 				});
 
