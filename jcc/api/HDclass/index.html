@@ -45,12 +45,12 @@
 							<li><a href="elements.html">Elements Reference</a></li>-->
 
 
-				<li><a href="qxindex.html">气象</a></li>
+				<li><a href="JavaScript:qxload()">气象</a></li>
 				<!--<li><a href="generic.html">Generic Page</a></li>
 							<li><a href="elements.html">Elements Reference</a></li>-->
 
 
-				<li><a href="ylindex.html">乐理</a></li>
+				<li><a href="JavaScript:ylload()">乐理</a></li>
 				<!--<li><a href="generic.html">Generic Page</a></li>
 							<li><a href="elements.html">Elements Reference</a></li>-->
 			</ul>
@@ -242,26 +242,45 @@
 		<script src="assets/js/main.js"></script>
 		<script type="text/javascript" src="api/api.js"></script>
 		<script type="text/javascript">
-			
+
 			apiready = function () {
 				Jnt = function () {
-				api.openTabLayout({
-					name: 'jn',
-					url: './jiajianet/index.html',
-					title: '遇见计算机',
-					hideNavigationBar: false,
-					bgColor: "#fff",
-					bounces: true,
-					scrollEnabled: true,
-					navigationBar: {
-						background: "#009ad6",
-						shadow: "rgba(0,0,0,0)",
-						color: "#fff",
-						fontSize: 18,
-						hideBackButton: false
-					}
-				});
-			}
+					setTimeout(function () {
+						api.hideProgress();
+					}, 1500);
+					api.openTabLayout({
+						name: 'jn',
+						url: './jiajianet/index.html',
+						title: '遇见计算机',
+						hideNavigationBar: false,
+						bgColor: "#fff",
+						bounces: true,
+						scrollEnabled: true,
+						navigationBar: {
+							background: "#009ad6",
+							shadow: "rgba(0,0,0,0)",
+							color: "#fff",
+							fontSize: 18,
+							hideBackButton: false
+						}
+					});
+				}
+				qxload = function () {
+					api.showProgress({
+						title: '加载课程中',
+						text: '请稍候',
+						modal: false
+					});
+					window.location.href = "qxindex.html";
+				}
+				ylload = function () {
+					api.showProgress({
+						title: '加载课程中',
+						text: '请稍候',
+						modal: false
+					});
+					window.location.href = "ylindex.html";
+				}
 				api.addEventListener({
 					name: 'offline'
 				}, function (ret, err) {

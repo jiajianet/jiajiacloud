@@ -261,7 +261,9 @@
 				});
 			}
 			apiready = function () {
-
+				setTimeout(function () {
+					api.hideProgress();
+				}, 1500);
 				api.addEventListener({
 					name: 'offline'
 				}, function (ret, err) {
@@ -291,6 +293,22 @@
 					orientation: 'auto'
 				});
 				api.setKeepScreenOn({ keepOn: true });
+				qxload = function () {
+					api.showProgress({
+						title: '加载课程中',
+						text: '请稍候',
+						modal: false
+					});
+					window.location.href = "qxindex.html";
+				}
+				jnload = function () {
+					api.showProgress({
+						title: '加载课程中',
+						text: '请稍候',
+						modal: false
+					});
+					window.location.href = "index.html";
+				}
 				Jnt = function () {
 					api.openTabLayout({
 						name: 'jn',
