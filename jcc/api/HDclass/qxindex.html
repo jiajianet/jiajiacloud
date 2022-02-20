@@ -40,12 +40,12 @@
 		<!-- Nav -->
 		<nav id="nav">
 			<ul class="links">
-				<li class="active"><a href="#">计算机</a></li>
+				<li><a href="index.html">计算机</a></li>
 				<!--<li><a href="generic.html">Generic Page</a></li>
 							<li><a href="elements.html">Elements Reference</a></li>-->
 
 
-				<li><a href="qxindex.html">气象</a></li>
+				<li class="active"><a href="#">气象</a></li>
 				<!--<li><a href="generic.html">Generic Page</a></li>
 							<li><a href="elements.html">Elements Reference</a></li>-->
 
@@ -68,15 +68,14 @@
 			<!-- Featured Post -->
 			<article class="post featured">
 				<header class="major">
-					<p>计算机</p>
+					<p>气象</p>
 					<span class="date">首推课程</span>
-					<h2><a href="JavaScript:jn()">遇见计算机<br />
+					<h2><a href="JavaScript:jn()">气象课程<br />
 						</a></h2>
-					<p>我们在这里讲解计算机的基础知识，实用技巧等，由贾贾网络官方直接主讲</p>
 				</header>
-				<a href="JavaScript:jn()" class="image main"><img src="images/ComputerClass.png" alt="" /></a>
+			<!--	<a href="JavaScript:qx()" class="image main"><img src="images/qx.png" alt="" /></a>-->
 				<ul class="actions special">
-					<li><a href="JavaScript:Jnt()" class="button large">进入课程</a></li>
+					<li><a href="JavaScript:qx()" class="button large">进入课程</a></li>
 				</ul>
 			</article>
 
@@ -242,26 +241,9 @@
 		<script src="assets/js/main.js"></script>
 		<script type="text/javascript" src="api/api.js"></script>
 		<script type="text/javascript">
-			
+
 			apiready = function () {
-				Jnt = function () {
-				api.openTabLayout({
-					name: 'jn',
-					url: './jiajianet/index.html',
-					title: '遇见计算机',
-					hideNavigationBar: false,
-					bgColor: "#fff",
-					bounces: true,
-					scrollEnabled: true,
-					navigationBar: {
-						background: "#009ad6",
-						shadow: "rgba(0,0,0,0)",
-						color: "#fff",
-						fontSize: 18,
-						hideBackButton: false
-					}
-				});
-			}
+
 				api.addEventListener({
 					name: 'offline'
 				}, function (ret, err) {
@@ -310,11 +292,11 @@
 					});
 				}
 				/*
-				yl = function(){
-				  api.openTabLayout({
-					name: 'yl',
-					url: 'widget://pages/HDclass/bgmy/yl/index.html',
-					title: '乐理',
+				Jnt = function () {
+				api.openTabLayout({
+					name: 'jn',
+					url: './jiajianet/index.html',
+					title: '遇见计算机',
 					hideNavigationBar: false,
 					bgColor: "#fff",
 					bounces: true,
@@ -325,26 +307,48 @@
 						color: "#fff",
 						fontSize: 18,
 						hideBackButton: false
-					}})
+					}
+				});
+			}*/
+/*
+				yl = function () {
+					api.openTabLayout({
+						name: 'yl',
+						url: 'widget://pages/HDclass/bgmy/yl/index.html',
+						title: '乐理',
+						hideNavigationBar: false,
+						bgColor: "#fff",
+						bounces: true,
+						scrollEnabled: true,
+						navigationBar: {
+							background: "#009ad6",
+							shadow: "rgba(0,0,0,0)",
+							color: "#fff",
+							fontSize: 18,
+							hideBackButton: false
 						}
-						qx = function(){
-				  api.openTabLayout({
-					name: 'qx',
-					url: 'widget://pages/HDclass/bgmy/qx/index.html',
-					title: '气象',
-					hideNavigationBar: false,
-					bgColor: "#fff",
-					bounces: true,
-					scrollEnabled: true,
-					navigationBar: {
-						background: "#009ad6",
-						shadow: "rgba(0,0,0,0)",
-						color: "#fff",
-						fontSize: 18,
-						hideBackButton: false
-					}})
+					})
+				}*/
+				
+				qx = function () {
+					api.openTabLayout({
+						name: 'qx',
+						url: 'widget://pages/HDclass/bgmy/qx/index.html',
+						title: '气象',
+						hideNavigationBar: false,
+						bgColor: "#fff",
+						bounces: true,
+						scrollEnabled: true,
+						navigationBar: {
+							background: "#009ad6",
+							shadow: "rgba(0,0,0,0)",
+							color: "#fff",
+							fontSize: 18,
+							hideBackButton: false
 						}
-						*/
+					})
+				}
+
 
 
 				var td = api.require('talkingData');
