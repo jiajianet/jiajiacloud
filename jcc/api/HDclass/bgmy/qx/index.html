@@ -5,177 +5,268 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>气象</title>
-  <link rel="stylesheet" media="screen" href="style/index.css">
-  <link rel="stylesheet" media="screen" href="style/index_pc.css">
-  <script src="script/index.js"></script>
-  <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>气象</title>
+    <link rel="stylesheet" media="screen" href="style/index.css">
+    <link rel="stylesheet" media="screen" href="style/index_pc.css">
+    <script src="script/index.js"></script>
+    <style>
+        html {
+            max-width: 1160px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    html {
-        max-width: 1160px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    body {
-        position: relative;
-        text-rendering: optimizeLegibility;
-        -webkit-font-smoothing: antialiased;
-        font-weight: 400;
-        font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Roboto,Source Han Sans SC,Noto Sans CJK SC,Segoe UI,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
-        padding:0;
-        margin:0;
-    }
-    div, p{margin:0;padding:0;}
-    a{
-        text-decoration: none;
-        outline:none;
-        -webkit-tap-highlight-color: rgba(0,0,0,0);
-        color:#000;
-    }
-    *{box-sizing:border-box;}
-    .container-fluid{width:100%;min-height:50px;background:#fff;padding:0 10px;position:relative;}
-    .navbar-brand{font-size:18px;height:50px;line-height:20px;padding:15px;position:absolute;left:0;top:0;z-index:1;}
-    .navbar-text{line-height:50px;font-size:17px;color:#444;}
-    .text-center{text-align:center;}     
-    .block {
-        margin-left: auto;
-        margin-right: auto;
-        padding: 26px 10px 20px 10px;
-        text-align:left;
-        height: 4rem;
-    }
-    .block img {
-        float: left;
-        margin-right: 8px;
-        width: 6rem;
-        height: 4rem;
-    }
-    .block p {
-        font-size:16px;
-        height: 4rem;
-        display: table-cell;
-        vertical-align: middle;
-    }
-    @media (max-width: 320px){
-    .block p {
-        height: 4rem;
-        font-size:13px;
-        display: table-cell;
-        vertical-align: middle;
-    }}
-     .block img {
-        float: left;
-        margin-right: 8px;
-        width: 6rem;
-        height: 4rem;
-    }
-    
-/*--预设--*/ 
-body { padding:0px;margin: 0px; } 
-#lyrow, #lyrow input, #lyrow textarea { font-size:12px;font-family: 'Microsoft YaHei', '微软雅黑', MicrosoftJhengHei, '华文细黑', STHeiti, MingLiu; } 
-#lyrow { height:100vh;width: 100vw; } 
-#lyrow div { min-height: 18px;  } 
-#lyrow input, #lyrow textarea { border:rgb(235, 235, 235) 1px solid;border-radius: 3px;padding: 5px 8px;outline: 0; } 
-#lyrow input:hover, #lyrow textarea:hover { border: 1px solid #6bc1f2; } 
-/*--编辑--*/ 
-#lyrow .computer { padding:10% 5% 10% 5%;overflow-x:auto;overflow-y:auto;position:static;display:flex !important;justify-content:center;user-select:none; } 
-#lyrow .yl { padding:0 5% 10px 5%;display:flex !important;overflow-x:auto;overflow-y:auto;position:static;justify-content:center;user-select:none; } 
+        body {
+            position: relative;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            font-weight: 400;
+            font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Roboto, Source Han Sans SC, Noto Sans CJK SC, Segoe UI, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;
+            padding: 0;
+            margin: 0;
+        }
 
-</style>
-<link rel="stylesheet" href="https://www.58html.com/gui/css/font-awesome/css/font-awesome.css">
+        div,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            outline: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            color: #000;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container-fluid {
+            width: 100%;
+            min-height: 50px;
+            background: #fff;
+            padding: 0 10px;
+            position: relative;
+        }
+
+        .navbar-brand {
+            font-size: 18px;
+            height: 50px;
+            line-height: 20px;
+            padding: 15px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+
+        .navbar-text {
+            line-height: 50px;
+            font-size: 17px;
+            color: #444;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .block {
+            margin-left: auto;
+            margin-right: auto;
+            padding: 26px 10px 20px 10px;
+            text-align: left;
+            height: 4rem;
+        }
+
+        .block img {
+            float: left;
+            margin-right: 8px;
+            width: 6rem;
+            height: 4rem;
+        }
+
+        .block p {
+            font-size: 16px;
+            height: 4rem;
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        @media (max-width: 320px) {
+            .block p {
+                height: 4rem;
+                font-size: 13px;
+                display: table-cell;
+                vertical-align: middle;
+            }
+        }
+
+        .block img {
+            float: left;
+            margin-right: 8px;
+            width: 6rem;
+            height: 4rem;
+        }
+
+        /*--预设--*/
+        body {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #lyrow,
+        #lyrow input,
+        #lyrow textarea {
+            font-size: 12px;
+            font-family: 'Microsoft YaHei', '微软雅黑', MicrosoftJhengHei, '华文细黑', STHeiti, MingLiu;
+        }
+
+        #lyrow {
+            height: 100vh;
+            width: 100vw;
+        }
+
+        #lyrow div {
+            min-height: 18px;
+        }
+
+        #lyrow input,
+        #lyrow textarea {
+            border: rgb(235, 235, 235) 1px solid;
+            border-radius: 3px;
+            padding: 5px 8px;
+            outline: 0;
+        }
+
+        #lyrow input:hover,
+        #lyrow textarea:hover {
+            border: 1px solid #6bc1f2;
+        }
+
+        /*--编辑--*/
+        #lyrow .computer {
+            padding: 10% 5% 10% 5%;
+            overflow-x: auto;
+            overflow-y: auto;
+            position: static;
+            display: flex !important;
+            justify-content: center;
+            user-select: none;
+        }
+
+        #lyrow .yl {
+            padding: 0 5% 10px 5%;
+            display: flex !important;
+            overflow-x: auto;
+            overflow-y: auto;
+            position: static;
+            justify-content: center;
+            user-select: none;
+        }
+    </style>
+    <link rel="stylesheet" href="https://www.58html.com/gui/css/font-awesome/css/font-awesome.css">
 </head>
+
 <body>
-        <p class="navbar-text text-center">气象（主讲：北国梅雨）</p>
-  <div class="nav">
-    <div class="box">
-      <img src="images/1icon.png" alt="">
-      <p>拓展课程一</p>
-      <a href="JavaScript:qx_a();">
+    <p class="navbar-text text-center">气象（主讲：北国梅雨）</p>
+    <div class="nav">
+        <div class="box">
+            <img src="images/1icon.png" alt="">
+            <p>拓展课程一</p>
+            <a href="JavaScript:qx_a();">
+        </div>
+        <div class="box">
+            <img src="images/dbz.png" alt="">
+            <p>Dbz判读</p>
+            <a href="JavaScript:qx_2();">
+        </div>
     </div>
-  </div>
 </body>
 <script type="text/javascript">
 
     apiready = function () {
 
-       
-      api.setRefreshHeaderInfo({
-                        visible: true,
-                        bgColor: '#ffffff',
-                        textColor: '#000000',
-                        textDown: '下拉刷新...',
-                        textUp: '松开刷新...',
-                        showTime: true
-                    }, function(ret, err) {
-                        setTimeout('api.refreshHeaderLoadDone()', '500');
-                    });
-      closeback = function(){
-        api.closeWin();
-      }
+
+        api.setRefreshHeaderInfo({
+            visible: true,
+            bgColor: '#ffffff',
+            textColor: '#000000',
+            textDown: '下拉刷新...',
+            textUp: '松开刷新...',
+            showTime: true
+        }, function (ret, err) {
+            setTimeout('api.refreshHeaderLoadDone()', '500');
+        });
+        closeback = function () {
+            api.closeWin();
+        }
         api.setScreenOrientation({
             orientation: 'auto'
         });
         api.setKeepScreenOn({ keepOn: true });
 
-         qx_a = function(){
-api.openTabLayout({
-    name: 'qx_a',
-    url: 'a/a.html',
-    title: '拓展课程一',
-    hideNavigationBar: false,
-    bgColor: "#fff",
-    navigationBar: {
-        background: "#009ad6",
-        shadow: "rgba(0,0,0,0)",
-        color: "#fff",
-        fontSize: 18,
-        hideBackButton: true,
-        leftButtons: [{
-                iconPath: "widget://image/icon/back.png"
-            }],
-            rightButtons: [{
-                iconPath: "widget://image/icon/teacher.png"
-            }]
-    },
-    })
+        qx_a = function () {
+            api.openTabLayout({
+                name: 'qx_a',
+                url: 'a/a.html',
+                title: '拓展课程一',
+                hideNavigationBar: false,
+                bgColor: "#fff",
+                navigationBar: {
+                    background: "#009ad6",
+                    shadow: "rgba(0,0,0,0)",
+                    color: "#fff",
+                    fontSize: 18,
+                    hideBackButton: true,
+                    leftButtons: [{
+                        iconPath: "widget://image/icon/back.png"
+                    }],
+                    rightButtons: [{
+                        iconPath: "widget://image/icon/teacher.png"
+                    }]
+                },
+            })
 
 
-}
-yl_2 = function(){
+        }
+        qx_2 = function () {
 
-api.openTabLayout({
-    name: 'yl_2',
-    url: 'bgmy/yl/2/final.html',
-    title: '相邻的两音',
-    hideNavigationBar: false,
-    bgColor: "#fff",
-    navigationBar: {
-        background: "#009ad6",
-        shadow: "rgba(0,0,0,0)",
-        color: "#fff",
-        fontSize: 18,
-        hideBackButton: true,
-        leftButtons: [{
-                iconPath: "widget://image/icon/back.png"
-            }],
-            rightButtons: [{
-                iconPath: "widget://image/icon/teacher.png"
-            }]
-    },
-    })
+            api.openTabLayout({
+                name: 'qx_2',
+                url: 'dbz/dbz.html',
+                title: 'Dbz判读',
+                hideNavigationBar: false,
+                bgColor: "#fff",
+                navigationBar: {
+                    background: "#009ad6",
+                    shadow: "rgba(0,0,0,0)",
+                    color: "#fff",
+                    fontSize: 18,
+                    hideBackButton: false,
+                    leftButtons: [{
+                        iconPath: "widget://image/icon/back.png"
+                    }],
+                    rightButtons: [{
+                        iconPath: "widget://image/icon/teacher.png"
+                    }]
+                },
+            })
 
-}
-var td = api.require('talkingData');
-td.onEvent({
-    eventId: '乐理课程首页',
-    eventLabel: '进入乐理课程首页',
-    
-});
+        }
+        var td = api.require('talkingData');
+        td.onEvent({
+            eventId: '乐理课程首页',
+            eventLabel: '进入乐理课程首页',
+
+        });
 
 
-        };
+    };
 </script>
+
 </html>
