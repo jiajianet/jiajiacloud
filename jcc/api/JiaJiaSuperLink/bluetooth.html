@@ -214,9 +214,11 @@
             background-color: #F2F2F2;
             position: relative;
             display: block;
-            width: 184px;
-            margin-left: auto;
-            margin-right: auto;
+            width: auto;
+            margin-left: 8px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            margin-top: 8px;
             padding: 8px 24px;
             box-sizing: border-box;
             font-weight: 700;
@@ -227,9 +229,10 @@
             border-radius: 4px;
             -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
             overflow: hidden;
+
         }
 
-        .btn:hover {
+        .btn:active {
             background-color: #D9D9D9;
         }
     </style>
@@ -241,9 +244,9 @@
             <div class="device-edit-uuid">
                 UUID: <input type="text" v-model="client.UUID" style="width:200px;">
                 <template v-if="!client.isConnecting">
-                    <button class="btn" type="button" v-if="!client.isConnected" @click="connectSPP(client)">连接</button>
-                    <button class="btn" type="button" v-else @click="disconnectSPP(client)">断开</button>
-                    <button class="btn" type="button" v-if="!client.isConnected" @click="removeClient">移除</button>
+                    <a class="btn" v-if="!client.isConnected" @click="connectSPP(client)">连接</a>
+                    <a class="btn" v-else @click="disconnectSPP(client)">断开</a>
+                    <a class="btn" v-if="!client.isConnected" @click="removeClient">移除</a>
                 </template>
                 <template v-else>
                     <div class="loading">
@@ -264,9 +267,9 @@
                             <option>UTF-8</option>
                             <option>GBK</option>
                         </select>
-                        <button class="btn" type="button" @click="sendDataSPP(client,false)"
-                            style="margin-bottom:8px;">发送string</button>
-                        <button class="btn" type="button" @click="sendDataSPP(client,true)">发送hex</button>
+                        <a class="btn" type="button" @click="sendDataSPP(client,false)"
+                            style="margin-bottom:8px;">发送string</a>
+                        <a class="btn" type="button" @click="sendDataSPP(client,true)">发送hex</a>
                     </div>
                 </div>
                 <div class="device-read">
@@ -288,8 +291,8 @@
                             <option>UTF-8</option>
                             <option>GBK</option>
                         </select>
-                        <button class="btn" type="button" @click="setReadDataCallbackSPP(client,false)">返回string</button>
-                        <button class="btn" type="button" @click="setReadDataCallbackSPP(client,true)">返回hex</button>
+                        <a class="btn" type="button" @click="setReadDataCallbackSPP(client,false)">返回string</a>
+                        <a class="btn" type="button" @click="setReadDataCallbackSPP(client,true)">返回hex</a>
                     </div>
                 </div>
             </div>
@@ -301,7 +304,7 @@
                 <div class="device-name">{{device.name}}</div>
                 <div class="device-address">{{device.address}}</div>
                 <div class="device-option">
-                    <button class="btn"type="button" @click="createClient(device)">添加客户端</button>
+                    <a class="btn" type="button" @click="createClient(device)">添加客户端</a>
                 </div>
             </div>
             <div class="device-client-list">
@@ -315,9 +318,9 @@
                 <div>
                     UUID: <input type="text" v-model="server.Server_UUID" style="width:240px;"><br>
                     isServerRun: {{server.isServerRun}}
-                    <button class="btn" type="button" v-if="!server.isServerRun" @click="startServer(server)">开启服务</button>
-                    <button class="btn" type="button" v-if="server.isServerRun" @click="stopServer(server)">停止服务</button>
-                    <button class="btn" type="button" v-if="!server.isServerRun" @click="removeServer(server)">移除服务</button>
+                    <a class="btn" type="button" v-if="!server.isServerRun" @click="startServer(server)">开启服务</a>
+                    <a class="btn" type="button" v-if="server.isServerRun" @click="stopServer(server)">停止服务</a>
+                    <a class="btn" type="button" v-if="!server.isServerRun" @click="removeServer(server)">移除服务</a>
                 </div>
             </div>
             连接的客户端:
@@ -326,7 +329,7 @@
                     <div class="device-name">{{server.client.name}}</div>
                     <div class="device-address">{{server.client.address}}</div>
                     <div class="device-option">
-                        <button class="btn" type="button" @click="disconnectServerClient(server)">主动断开</button>
+                        <a class="btn" type="button" @click="disconnectServerClient(server)">主动断开</a>
                     </div>
                 </div>
                 <div class="device-data">
@@ -338,9 +341,9 @@
                                 <option>UTF-8</option>
                                 <option>GBK</option>
                             </select>
-                            <button type="button" @click="sendDataServer(server,false)"
-                                style="margin-bottom:8px;">发送string</button>
-                            <button type="button" @click="sendDataServer(server,true)">发送hex</button>
+                            <a class="btn" type="button" @click="sendDataServer(server,false)"
+                                style="margin-bottom:8px;">发送string</a>
+                            <a class="btn" type="button" @click="sendDataServer(server,true)">发送hex</a>
                         </div>
                     </div>
                     <div class="device-read">
@@ -362,8 +365,11 @@
                                 <option>UTF-8</option>
                                 <option>GBK</option>
                             </select>
-                            <button type="button" @click="setReadDataCallbackServerClient(server,false)">返回string</button>
-                            <button type="button" @click="setReadDataCallbackServerClient(server,true)">返回hex</button>
+                            <div>
+                            <a class="btn"type="a" @click="setReadDataCallbackServerClient(server,false)">返回string</a>
+                            </div><div>
+                            <a class="btn" type="a" @click="setReadDataCallbackServerClient(server,true)">返回hex</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -372,20 +378,25 @@
     </script>
 
     <div id="app">
-        <button type="button" @click="refreshPage()">刷新页面看看有没有bug</button>
+        <div>
+            
+        
+        <a class="btn" @click="refreshPage()">刷新页面看看有没有bug</a>
+    </div>
         <p>蓝牙状态:</p>
         <div>
             enableBluetooth: {{base.enableBluetooth}}<br>
             bluetoothStatus: {{base.bluetoothStatus}}<br>
             isFindding: {{base.isFindding}}<br>
         </div>
-        <button type="button" @click="isEnabledBluetooth()">获取蓝牙状态</button>
-        <button type="button" @click="openBluetooth()">打开蓝牙</button>
-        <button type="button" @click="closeBluetooth()">关闭蓝牙</button>
-        <button type="button" @click="isScanning()">检查是否正在扫描设备</button>
-        <button type="button" @click="scan()">搜索设备</button>
-        <button type="button" @click="stopScan()">停止搜索</button>
-
+        <div>
+        <a class="btn" type="button" @click="isEnabledBluetooth()">获取蓝牙状态</a>
+        <a class="btn" type="button" @click="openBluetooth()">打开蓝牙</a>
+        <a class="btn" type="button" @click="closeBluetooth()">关闭蓝牙</a>
+        <a class="btn" type="button" @click="isScanning()">检查是否正在扫描设备</a>
+        <a class="btn" type="button" @click="scan()">搜索设备</a>
+        <a class="btn" type="button" @click="stopScan()">停止搜索</a>
+    </div>
         <p>
             日志:
         </p>
@@ -412,7 +423,7 @@
 
         <div class="server-section">
             <div style="text-align:center;font-size:20px;margin:5px;">蓝牙串口服务端</div>
-            <button type="button" @click="addServer()">添加一个串口服务端</button>
+            <a class="btn" type="button" @click="addServer()">添加一个串口服务端</a>
             <Server v-for="(server,index) in servers" :key="index" :server="server"></Server>
         </div>
         <div style="height:200px;"></div>
