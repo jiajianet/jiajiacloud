@@ -11,8 +11,8 @@
   <script type="text/javascript" src="script/vue.js"></script>
   <style>
     body {
-      padding: 10px 5px;
-      width: auto;
+      width: 100%;
+      height: 100%;
     }
 
     p {
@@ -33,9 +33,11 @@
             background-color: #F2F2F2;
             position: relative;
             display: block;
-            width: 184px;
-            margin-left: auto;
-            margin-right: auto;
+            width: auto;
+            margin-left: 8px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            margin-top: 8px;
             padding: 8px 24px;
             box-sizing: border-box;
             font-weight: 700;
@@ -56,10 +58,10 @@
 
 <body>
   <div id="app" style="padding: 20px 5px;">
-    <a href="./bluetooth.html">贾贾SuperLink协议测试</a><br><br><br>
+    <a class="btn" href="./bluetooth.html">贾贾SuperLink协议测试</a><br><br>
 
-    其他链路连接地址: <input type="text" id="url" style="width:240px;" placeholder="http://xxx.xxx.xxx" /><br>
-    <a id="toGo" type="a" onclick="goSelf()">前往</a>
+    &nbsp;&nbsp;其他链路连接地址: <input type="text" id="url" style="width:240px;" placeholder="http://xxx.xxx.xxx" /><br><br>
+    <a class="btn" id="toGo" type="a" onclick="goSelf()">前往</a>
   </div>
 
   <script type="text/javascript">
