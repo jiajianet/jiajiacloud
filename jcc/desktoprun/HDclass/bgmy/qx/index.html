@@ -189,84 +189,17 @@
 </body>
 <script type="text/javascript">
 
-    apiready = function () {
+    function qx_a() {
+        window.location.href = "a/a.html"
+    }
+    function qx_2() {
+        window.location.href = "dbz/dbz.html"
+    }
+    function jn_a() {
+        window.location.href = "./a/vmware.html"
+    }
 
 
-        api.setRefreshHeaderInfo({
-            visible: true,
-            bgColor: '#ffffff',
-            textColor: '#000000',
-            textDown: '下拉刷新...',
-            textUp: '松开刷新...',
-            showTime: true
-        }, function (ret, err) {
-            setTimeout('api.refreshHeaderLoadDone()', '500');
-        });
-        closeback = function () {
-            api.closeWin();
-        }
-        api.setScreenOrientation({
-            orientation: 'auto'
-        });
-        api.setKeepScreenOn({ keepOn: true });
-
-        qx_a = function () {
-            api.openTabLayout({
-                name: 'qx_a',
-                url: 'a/a.html',
-                title: '拓展课程一',
-                hideNavigationBar: false,
-                bgColor: "#fff",
-                navigationBar: {
-                    background: "#009ad6",
-                    shadow: "rgba(0,0,0,0)",
-                    color: "#fff",
-                    fontSize: 18,
-                    hideBackButton: true,
-                    leftButtons: [{
-                        iconPath: "widget://image/icon/back.png"
-                    }],
-                    rightButtons: [{
-                        iconPath: "widget://image/icon/teacher.png"
-                    }]
-                },
-            })
-
-
-        }
-        qx_2 = function () {
-
-            api.openTabLayout({
-                name: 'qx_2',
-                url: 'dbz/dbz.html',
-                title: 'Dbz判读',
-                hideNavigationBar: false,
-                bgColor: "#fff",
-                navigationBar: {
-                    background: "#009ad6",
-                    shadow: "rgba(0,0,0,0)",
-                    color: "#fff",
-                    fontSize: 18,
-                    hideBackButton: false,
-                    leftButtons: [{
-                        iconPath: "widget://image/icon/back.png"
-                    }],
-                    rightButtons: [{
-                        iconPath: "widget://image/icon/teacher.png"
-                    }]
-                },
-            })
-
-        }
-        var td = api.require('talkingData');
-        td.onEvent({
-            eventId: '乐理课程首页',
-            eventLabel: '进入乐理课程首页',
-
-        });
-
-
-    };
 </script>
 
 </html>
