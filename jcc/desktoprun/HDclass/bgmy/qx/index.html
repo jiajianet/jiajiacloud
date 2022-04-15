@@ -11,7 +11,7 @@
     <title>气象</title>
     <link rel="stylesheet" media="screen" href="style/index.css">
     <link rel="stylesheet" media="screen" href="style/index_pc.css">
-    <script src="script/index.js"></script>
+    <link rel="stylesheet" href="css/style.css">
     <style>
         html {
             max-width: 1160px;
@@ -178,17 +178,34 @@
         <div class="box">
             <img src="images/1icon.png" alt="">
             <p>拓展课程一</p>
-            <a href="JavaScript:qx_a();">
+            <a href="JavaScript:qx_a();"></a>
         </div>
         <div class="box">
             <img src="images/dbz.png" alt="">
             <p>Dbz判读</p>
-            <a href="JavaScript:qx_2();">
+            <a href="JavaScript:qx_2();"></a>
         </div>
     </div>
-</body>
-<script type="text/javascript">
+    <nav class="amazing-tabs">
 
+        <div class="main-tabs-container">
+            <div class="main-tabs-wrapper">
+                <ul class="main-tabs">
+                    <li>
+                        <button onclick="window.history.back()" class="round-button" style="--round-button-active-color: #00c853" 
+                            data-translate-value="200%" data-color="green" >
+                            <img src="images/close.png" width="32" height="32">
+                        </button>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        </div>
+    </nav>
+</body>
+
+<script type="text/javascript">
     function qx_a() {
         window.location.href = "a/a.html"
     }

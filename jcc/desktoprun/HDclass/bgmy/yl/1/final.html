@@ -23,41 +23,9 @@ content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,
 <iframe class="smart-player-embed-iframe" id="embeddedSmartPlayerInstance" src="final_player.html?embedIFrameId=embeddedSmartPlayerInstance" scrolling="no" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 </div>
 <font color="#FFFFFFF">乐理课程1</font> 
+
 </body>
 <script>
-        function apiready(){
-            var td = api.require('talkingData');
-            td.onEvent({
-    eventId: '乐理课程1',
-    eventLabel: '乐理课程1',
-    
-});
-
-            api.addEventListener({
-                name: 'navitembtn'
-            }, function(ret, err) {
-                if (ret.type == 'left') {
-                api.closeWin();
-                }
-                if (ret.type == 'right') {
-            alert('功能开发中，敬请期待！')
-        }
-            });
-
-            var notification = api.require('customNotification');
-notification.updateNotification({
-                                         smallIcon:'widget://icon/qianniu.png',
-                                         bigIcon:'widget://icon/qianniu.png',
-                                         title:'消息通知11122222222',
-                                         msgOne:{text:'拥有的课程',num:6},
-                                         msgTwo:{text:'正在学习的',num:1},
-                                         msgThree:{text:'帮助服务',num:1},
-                                         msgFour:{text:'其他消息',num:0}
-                                         },function(ret) {
-                                              if (ret.code==0) {
-                                                  alert(ret.msg);
-                                               }
-                                      });
-        }
+      
         </script>
 </html>
