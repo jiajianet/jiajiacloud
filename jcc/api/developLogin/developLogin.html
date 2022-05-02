@@ -68,63 +68,11 @@
 	apiready = function () {
 
 		loginerror = function () {
-			var dialogBox = api.require('dialogBox');
-			dialogBox.raffle({
-				texts: {
-					title: '帐户或密码不正确',
-					mainText: '您输入的帐户或密码错误',
-					subText: '请重新输入',
-					rightTitle: '确定'
-				},
-				styles: {
-
-					bg: '#fff',
-					w: 300,
-					corner: 16,
-					title: {
-						size: 14,
-						color: '#000',
-						marginT: 20
-					},
-					icon: {
-						marginT: 20,
-						w: 40,
-						h: 40,
-						iconPath: 'widget://pages/main_cart/images/lockerror.png'
-					},
-					main: {
-						marginT: 20,
-						color: '#636363',
-						size: 13
-					},
-					sub: {
-						marginT: 8,
-						color: '#999999',
-						size: 12
-					},
-
-					right: {
-						marginB: 7,
-						marginL: 85,
-						w: 130,
-						h: 35,
-						corner: 2,
-						bg: '#fff',
-						color: '#007FFF',
-						size: 12
-					}
-				},
-
-			}, function (ret, err) {
-				if (ret) {
-					dialogBox.close({
-						dialogName: 'raffle'
-					});
-
-				} else {
-					alert("出错了");
-				}
-			});
+			api.toast({
+				msg:'帐户或密码错误，请重新输入',
+				duration:'3000',
+				location:'middle'
+			})
 		}
 		LoginSubmit = function () {
 			var username = $api.val($api.byId('username'));
