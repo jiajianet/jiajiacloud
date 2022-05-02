@@ -77,8 +77,7 @@
 		LoginSubmit = function () {
 			var username = $api.val($api.byId('username'));
 			var password = $api.val($api.byId('password'));
-			alert(username)
-			alert(password)
+
 
 
 			api.ajax({
@@ -109,14 +108,14 @@
 								alert(JSON.stringify(ret));
 							} else {
 								loginerror();
-								console.log("decryptError")
+
 							}
 						});
 					});
 
 
 				} else {
-					console.log("AjaxError")
+
 					loginerror();
 				}
 			});
