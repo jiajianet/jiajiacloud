@@ -66,22 +66,108 @@
 <script type="text/javascript" src="./js/api.js"></script>
 <script>
 	apiready = function () {
+
+		loginerror = function () {
+			var dialogBox = api.require('dialogBox');
+			dialogBox.raffle({
+				texts: {
+					title: '帐户或密码不正确',
+					mainText: '您输入的帐户或密码错误',
+					subText: '请重新输入',
+					rightTitle: '确定'
+				},
+				styles: {
+
+					bg: '#fff',
+					w: 300,
+					corner: 16,
+					title: {
+						size: 14,
+						color: '#000',
+						marginT: 20
+					},
+					icon: {
+						marginT: 20,
+						w: 40,
+						h: 40,
+						iconPath: 'widget://pages/main_cart/images/lockerror.png'
+					},
+					main: {
+						marginT: 20,
+						color: '#636363',
+						size: 13
+					},
+					sub: {
+						marginT: 8,
+						color: '#999999',
+						size: 12
+					},
+
+					right: {
+						marginB: 7,
+						marginL: 85,
+						w: 130,
+						h: 35,
+						corner: 2,
+						bg: '#fff',
+						color: '#007FFF',
+						size: 12
+					}
+				},
+
+			}, function (ret, err) {
+				if (ret) {
+					var dialogBox = api.require('dialogBox');
+					dialogBox.close({
+						dialogName: 'raffle'
+					});
+
+				} else {
+					alert("出错了");
+				}
+			});
+		}
 		LoginSubmit = function () {
 			var username = $api.val($api.byId('username'));
 			var password = $api.val($api.byId('password'));
+
+
+
+			api.ajax({
+				url: "https://jiajiacloud.vercel.app/jcc/api/user/develop" + username + "/config.html",
+				method: 'GET',
+				dataType: 'json'
+			}, function (ret, err) {
+
+				if (ret) {
+					//console.log(ret);
+					var passwdCorrect = ret.Paasword
+					var AccountStatus = ret.status
+					var usrName = ret.UserName
+					console.log(passwdCorrect)
+					console.log(AccountStatus)
+					console.log(usrName)
+
+
+
+				} else {
+					loginerror();
+				}
+			});
+
 			api.loadSecureValue({
 				key: 'developPasswordDecrypt'
 			}, function (ret, err) {
 				var decryptKey = ret.value;
 				var signature = api.require('signature');
 				signature.aesDecode({
-					data: '******',
+					data: password,
 					key: decryptKey
 				}, function (ret, err) {
 					if (ret.status) {
 						alert(JSON.stringify(ret));
 					} else {
-						alert(JSON.stringify(err));
+						loginerror();
 					}
 				});
 			});
