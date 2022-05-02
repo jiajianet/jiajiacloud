@@ -69,9 +69,9 @@
 
 		loginerror = function () {
 			api.toast({
-				msg:'帐户或密码错误，请重新输入',
-				duration:'3000',
-				location:'middle'
+				msg: '帐户或密码错误，请重新输入',
+				duration: '3000',
+				location: 'middle'
 			})
 		}
 		LoginSubmit = function () {
@@ -95,29 +95,31 @@
 					console.log(AccountStatus)
 					console.log(usrName)
 
+					api.loadSecureValue({
+						key: 'developPasswordDecrypt'
+					}, function (ret, err) {
+						var decryptKey = ret.value;
+						var signature = api.require('signature');
+						signature.aesDecode({
+							data: password,
+							key: decryptKey
+						}, function (ret, err) {
+							if (ret.status) {
+								alert(JSON.stringify(ret));
+							} else {
+								loginerror();
+								console.log("decryptError")
+							}
+						});
+					});
 
 
 				} else {
+					console.log("AjaxError")
 					loginerror();
 				}
 			});
 
-			api.loadSecureValue({
-				key: 'developPasswordDecrypt'
-			}, function (ret, err) {
-				var decryptKey = ret.value;
-				var signature = api.require('signature');
-				signature.aesDecode({
-					data: password,
-					key: decryptKey
-				}, function (ret, err) {
-					if (ret.status) {
-						alert(JSON.stringify(ret));
-					} else {
-						loginerror();
-					}
-				});
-			});
 		}
 
 	}
