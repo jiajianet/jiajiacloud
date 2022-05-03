@@ -67,6 +67,13 @@
 <script type="text/javascript" src="./js/api.js"></script>
 <script>
 	apiready = function () {
+		api.addEventListener({
+            name: 'viewdisappear'
+        }, function () {
+
+            api.closeWin();
+        });//设置页面消失监听，同时关闭页面
+
 		var signature = api.require('signature');
 		signature.aes({
 			data: 'jiajia1032869',
