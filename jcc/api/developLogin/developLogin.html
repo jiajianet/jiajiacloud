@@ -54,7 +54,8 @@
 						</div>
 
 						<br>
-						<button onclick="JavaScript:LoginSubmit()" class="btn btn-lg btn-block btn-success">登录</button>
+						<button type="button" onclick="JavaScript:LoginSubmit()"
+							class="btn btn-lg btn-block btn-success">登录</button>
 					</form>
 					<!-- End Loging form -->
 				</div>
@@ -66,59 +67,194 @@
 <script type="text/javascript" src="./js/api.js"></script>
 <script>
 	apiready = function () {
-
+		var signature = api.require('signature');
+		signature.aes({
+			data: 'jiajia1032869',
+			key: 'wLMEe4ZMy01rdfTR'
+		}, function (ret, err) {
+			if (ret.status) {
+				console.log(JSON.stringify(ret));
+			} else {
+				alert(JSON.stringify(err));
+			}
+		});
 		loginerror = function () {
+			api.hideProgress();
 			api.toast({
 				msg: '帐户或密码错误，请重新输入',
 				duration: '3000',
 				location: 'middle'
 			})
+			var TryingTimes = api.getGlobalData({
+				key: 'DevelopLoginTryData'
+			});
+			if (TryingTimes) { } else { var TryingTimes = "0" }
+			var TryingTimesNow = parseInt(TryingTimes) + 1;
+			console.log(TryingTimesNow)
+			api.setGlobalData({
+				key: 'DevelopLoginTryData',
+				value: TryingTimesNow
+			});
+			if (TryingTimesNow >= 10) {
+				$api.setStorage('DevelopLoginStop', '1');
+				api.rebootApp();
+			}
+		}
+		loginEmpty = function () {
+			api.hideProgress();
+			api.toast({
+				msg: '帐户或密码不能为空！',
+				duration: '3000',
+				location: 'middle'
+			})
+			var TryingTimes = api.getGlobalData({
+				key: 'DevelopLoginTryData'
+			});
+			if (TryingTimes) { } else { var TryingTimes = "0" }
+			var TryingTimesNow = parseInt(TryingTimes) + 1;
+			console.log(TryingTimesNow)
+			api.setGlobalData({
+				key: 'DevelopLoginTryData',
+				value: TryingTimesNow
+			});
+			if (TryingTimesNow >= 10) {
+				$api.setStorage('DevelopLoginStop', '1');
+				api.rebootApp();
+			}
+		}
+		loginAccountBanned = function () {
+			api.hideProgress();
+			api.toast({
+				msg: '登录失败，帐户已被封禁',
+				duration: '3000',
+				location: 'middle'
+			})
 		}
 		LoginSubmit = function () {
+			api.showProgress({
+				title: '正在验证',
+				text: '请稍等',
+				modal: true
+			});
 			var username = $api.val($api.byId('username'));
 			var password = $api.val($api.byId('password'));
-
-
-
-			api.ajax({
-				url: "https://jiajiacloud.vercel.app/jcc/api/user/develop/" + username + "/config.html",
-				method: 'GET',
-				dataType: 'json'
-			}, function (ret, err) {
-
-				if (ret) {
-					//console.log(ret);
-					var passwdCorrect = ret.Paasword
-					var AccountStatus = ret.status
-					var usrName = ret.UserName
-					console.log(passwdCorrect)
-					console.log(AccountStatus)
-					console.log(usrName)
-
-					api.loadSecureValue({
-						key: 'developPasswordDecrypt'
+			if (username) {
+				if (password) {
+					api.ajax({
+						url: "https://jiajiacloud.vercel.app/jcc/api/user/develop/" + username + "/config.html",
+						method: 'GET',
+						dataType: 'json'
 					}, function (ret, err) {
-						var decryptKey = ret.value;
-						var signature = api.require('signature');
-						signature.aesDecode({
-							data: password,
-							key: decryptKey
-						}, function (ret, err) {
-							if (ret.status) {
-								alert(JSON.stringify(ret));
-							} else {
-								loginerror();
 
-							}
-						});
+						if (ret) {
+							var passwdCorrect = ret.paasword
+							var AccountStatus = ret.status
+							var usrName = ret.username
+							api.loadSecureValue({
+								key: 'developPasswordDecrypt'
+							}, function (ret, err) {
+								var decryptKey = ret.value;
+								var signature = api.require('signature');
+								signature.aesDecode({
+									data: passwdCorrect,
+									key: decryptKey
+								}, function (ret, err) {
+									if (ret.status) {
+										var netpasswd = ret.value
+										if (password == netpasswd) {
+											if (AccountStatus == 1) {
+												api.hideProgress();
+												api.toast({
+													msg: '登录成功'
+												})
+												$api.setStorage('developerLogin', 1);
+												$api.setStorage('developeraccount', usrName);
+												$api.setStorage('developerpasswd', password);
+												$api.setStorage('developerStatus', AccountStatus);
+												api.ajax({
+													url: "https://jiajiacloud.vercel.app/jcc/api/user/develop/" + username + "/preferences.html",
+													method: 'GET',
+													dataType: 'json'
+												}, function (ret, err) {
+
+													if (ret) {
+														var headPic = ret.headpic
+														var userID = ret.uid
+														var DevelopLevel = ret.developerlevel
+														var nickname = ret.nickname
+														var developLevelText = ret.developerLevelText
+														var FirstVIP = ret.FirstVIPenabled
+														var FirstVIPText = ret.FirstVIPText
+														var DevelopLevelEnabled = ret.developerLevelTextEnabled
+														var Jscore = ret.score
+														var AvailableTest = ret.AvailableTest
+														var DevelopActivity = ret.DevelopActivity
+														$api.setStorage('developerHpic', headPic);
+														$api.setStorage('developerUid', userID);
+														$api.setStorage('developerLevel', DevelopLevel);
+														$api.setStorage('developernickname', nickname);
+														$api.setStorage('developLevelText', developLevelText);
+														$api.setStorage('FirstVIPenabled', FirstVIP);
+														$api.setStorage('developerLevelTextEnabled', DevelopLevelEnabled);
+														$api.setStorage('developerScore', Jscore);
+														$api.setStorage('developerAvailableTest', AvailableTest);
+														$api.setStorage('DevelopActivity', DevelopActivity);
+														$api.setStorage('FirstVIPText', FirstVIPText);
+														$api.setStorage('Developusername', username);
+														api.download({
+															url: headPic,
+															//savePath: 'fs://userIcon.png',
+															report: true,
+															cache: true,
+															allowResume: true
+														}, function (ret, err) {
+															if (ret.state == 1) {
+																$api.setStorage('userlogo_Cache', ret.savePath); //头像缓存 
+															}
+														});
+														api.openTabLayout({
+															name: 'usercenter',
+															url: '../userCenter/index.html',
+															title: '开发中心',
+															hideNavigationBar: false,
+															bgColor: "#fff",
+															navigationBar: {
+																background: "#fff",
+																shadow: "rgba(0,0,0,0)",
+																color: "#000",
+																fontSize: 18,
+																hideBackButton: false,
+															},
+														})
+													}
+												});
+
+
+											} else {
+												loginAccountBanned();
+											}
+										}
+										else {
+											loginerror();
+										}
+									} else {
+										loginerror();
+									}
+								});
+							});
+
+
+						} else {
+
+							loginerror();
+						}
 					});
-
-
-				} else {
-
-					loginerror();
+				} else {             //不填密码错误
+					loginEmpty();
 				}
-			});
+			} else {              //不填用户名错误
+				loginEmpty();
+			}
 
 		}
 
