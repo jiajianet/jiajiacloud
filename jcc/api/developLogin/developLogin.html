@@ -73,18 +73,6 @@
 
             api.closeWin();
         });//设置页面消失监听，同时关闭页面
-
-		var signature = api.require('signature');
-		signature.aes({
-			data: 'jiajia1032869',
-			key: 'wLMEe4ZMy01rdfTR'
-		}, function (ret, err) {
-			if (ret.status) {
-				console.log(JSON.stringify(ret));
-			} else {
-				alert(JSON.stringify(err));
-			}
-		});
 		loginerror = function () {
 			api.hideProgress();
 			api.toast({
