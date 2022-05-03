@@ -123,6 +123,20 @@
 				duration: '3000',
 				location: 'middle'
 			})
+			var TryingTimes = api.getGlobalData({
+				key: 'DevelopLoginTryData'
+			});
+			if (TryingTimes) { } else { var TryingTimes = "0" }
+			var TryingTimesNow = parseInt(TryingTimes) + 1;
+			console.log(TryingTimesNow)
+			api.setGlobalData({
+				key: 'DevelopLoginTryData',
+				value: TryingTimesNow
+			});
+			if (TryingTimesNow >= 10) {
+				$api.setStorage('DevelopLoginStop', '1');
+				api.rebootApp();
+			}
 		}
 		LoginSubmit = function () {
 			api.showProgress({
