@@ -68,11 +68,11 @@
 <script>
 	apiready = function () {
 		api.addEventListener({
-			name: 'viewdisappear'
-		}, function () {
+            name: 'viewdisappear'
+        }, function () {
 
-			api.closeWin();
-		});//设置页面消失监听，同时关闭页面
+            api.closeWin();
+        });//设置页面消失监听，同时关闭页面
 		loginerror = function () {
 			api.hideProgress();
 			api.toast({
@@ -204,23 +204,22 @@
 														}, function (ret, err) {
 															if (ret.state == 1) {
 																$api.setStorage('userlogo_Cache', ret.savePath); //头像缓存 
-																api.openTabLayout({
-																	name: 'usercenter',
-																	url: 'widget://pages/main_cart/pages/develop/userCenter/index.html',
-																	title: '开发中心',
-																	hideNavigationBar: false,
-																	bgColor: "#fff",
-																	navigationBar: {
-																		background: "#fff",
-																		shadow: "rgba(0,0,0,0)",
-																		color: "#000",
-																		fontSize: 18,
-																		hideBackButton: false,
-																	},
-																})
 															}
 														});
-
+														api.openTabLayout({
+															name: 'usercenter',
+															url: 'widget://pages/main_cart/pages/develop/userCenter/index.html',
+															title: '开发中心',
+															hideNavigationBar: false,
+															bgColor: "#fff",
+															navigationBar: {
+																background: "#fff",
+																shadow: "rgba(0,0,0,0)",
+																color: "#000",
+																fontSize: 18,
+																hideBackButton: false,
+															},
+														})
 													}
 												});
 
