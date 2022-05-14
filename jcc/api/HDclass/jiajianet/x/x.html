@@ -255,7 +255,14 @@
         }
 
         viewclasspdf = function () {
-            
+            api.openWin({
+                name: 'pdfview',
+                url: '../../public/pdfview.html',
+                pageParam: {
+                    pdfsource: '../jiajianet/x/x.pdf'
+                }
+            });
+
         }
 
 
