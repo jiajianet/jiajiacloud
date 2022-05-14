@@ -18,6 +18,8 @@
     <title>巧用Windows快捷键</title>
 
     <link href="x_embed.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" media="screen" href="../style/index.css">
+    <link rel="stylesheet" media="screen" href="../style/index_pc.css">
 </head>
 <style>
     /*--预设--*/
@@ -145,7 +147,7 @@
         top: 14px;
     }
 </style>
-<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+<link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
 <div id="lyrow">
     <div class="smart-player-embed-container">
         <iframe class="smart-player-embed-iframe" id="embeddedSmartPlayerInstance"
@@ -160,7 +162,30 @@
         <span class="tickt">已订阅</span>
     </div>
     <span class="text">本节课教你巧用Windows系统中键盘的快捷键！可以工作提升效率，节省时间。快来看看吧！</span>
+    <div class="nav">
+        <div class="box">
+            <img src="./images/scan.png" alt="">
+            <p>旋转屏幕</p>
+            <a href="JavaScript:rotateScr();"></a>
+        </div>
+        <div class="box">
+            <img src="./images/note.png" alt="">
+            <p>查看讲义</p>
+            <a href="JavaScript:viewclasspdf();"></a>
+        </div>
+        <div class="box">
+            <img src="./images/camera.png" alt="">
+            <p>截屏</p>
+            <a href="JavaScript:cutScreen();"></a>
+        </div>
+        <div class="box">
+            <img src="./images/settings.png" alt="">
+            <p>随手记</p>
+            <a href="JavaScript:handwriting();"></a>
+        </div>
+    </div>
 </div>
+
 </body>
 <script type="text/javascript" src="../../api/api.js"></script>
 <script>
