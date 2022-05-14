@@ -222,13 +222,43 @@
 </body>
 <script type="text/javascript" src="../../api/api.js"></script>
 <script>
-    function apiready() {
+    apiready = function () {
         var td = api.require('talkingData');
         td.onEvent({
             eventId: '巧用Windows键盘快捷键',
             eventLabel: '巧用Windows键盘快捷键',
 
         });
+
+        rotateScr = function () {
+            var scrL = api.getGlobalData({
+                key: 'scrL'
+            });
+            if (scrL == 1) {
+
+                api.setScreenOrientation({
+                    orientation: 'auto_landscape'
+                });
+                api.setGlobalData({
+                    key: 'scrL',
+                    value: '0'
+                });
+            } else {
+                api.setScreenOrientation({
+                    orientation: 'auto_portrait'
+                });
+                api.setGlobalData({
+                    key: 'scrL',
+                    value: '1'
+                });
+            }
+        }
+
+        viewclasspdf = function () {
+            
+        }
+
+
 
         api.addEventListener({
             name: 'navitembtn'

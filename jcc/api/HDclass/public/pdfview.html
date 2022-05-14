@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>遇见计算机</title>
+    <link rel="stylesheet" media="screen" href="style/index.css">
+    <link rel="stylesheet" media="screen" href="style/index_pc.css">
+    <style>
+        html {
+            max-width: 1160px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        body {
+            position: relative;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            font-weight: 400;
+            font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Roboto, Source Han Sans SC, Noto Sans CJK SC, Segoe UI, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        div,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            outline: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            color: #000;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container-fluid {
+            width: 100%;
+            min-height: 50px;
+            background: #fff;
+            padding: 0 10px;
+            position: relative;
+        }
+
+        .navbar-brand {
+            font-size: 18px;
+            height: 50px;
+            line-height: 20px;
+            padding: 15px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+
+        .navbar-text {
+            line-height: 50px;
+            font-size: 17px;
+            color: #444;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .block {
+            margin-left: auto;
+            margin-right: auto;
+            padding: 26px 10px 20px 10px;
+            text-align: left;
+            height: 4rem;
+        }
+
+        .block img {
+            float: left;
+            margin-right: 8px;
+            width: 6rem;
+            height: 4rem;
+        }
+
+        .block p {
+            font-size: 16px;
+            height: 4rem;
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        @media (max-width: 320px) {
+            .block p {
+                height: 4rem;
+                font-size: 13px;
+                display: table-cell;
+                vertical-align: middle;
+            }
+        }
+
+        .block img {
+            float: left;
+            margin-right: 8px;
+            width: 6rem;
+            height: 4rem;
+        }
+
+        /*--预设--*/
+        body {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #lyrow,
+        #lyrow input,
+        #lyrow textarea {
+            font-size: 12px;
+            font-family: 'Microsoft YaHei', '微软雅黑', MicrosoftJhengHei, '华文细黑', STHeiti, MingLiu;
+        }
+
+        #lyrow {
+            height: 100vh;
+            width: 100vw;
+        }
+
+        #lyrow div {
+            min-height: 18px;
+        }
+
+        #lyrow input,
+        #lyrow textarea {
+            border: rgb(235, 235, 235) 1px solid;
+            border-radius: 3px;
+            padding: 5px 8px;
+            outline: 0;
+        }
+
+        #lyrow input:hover,
+        #lyrow textarea:hover {
+            border: 1px solid #6bc1f2;
+        }
+
+        /*--编辑--*/
+        #lyrow .computer {
+            padding: 10% 5% 10% 5%;
+            overflow-x: auto;
+            overflow-y: auto;
+            position: static;
+            display: flex !important;
+            justify-content: center;
+            user-select: none;
+        }
+
+        #lyrow .yl {
+            padding: 0 5% 10px 5%;
+            display: flex !important;
+            overflow-x: auto;
+            overflow-y: auto;
+            position: static;
+            justify-content: center;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="navbar-text text-center">正在打开讲义</p>
+
+</body>
+<script type="text/javascript" src="../api/api.js"></script>
+<script type="text/javascript">
+
+
+    apiready = function () {
+        var pdfReader = api.require('pdfReader');
+        pdfReader.openPdfView({
+            rect: {
+                x: 0,
+                y: api.winHeight - 45,
+                w: 'auto',
+                h: 'auto'
+            },
+            path: './x.pdf',
+            fixed: true
+        }, function (ret) {
+            var pageTotal = ret.totalPage
+            api.toast({
+                msg: '共' + pageTotal + '页'
+            })
+        });
+    };
+</script>
+
+</html>
