@@ -169,6 +169,11 @@
 </head>
 
 <body>
+    <div class="nvbar">
+        <img src="http://www.58html.com/folder/imgs/202205/fcc568e8b11b1d457eb6181c542e1d07.png" width="32" height="32"
+            onclick="JavaScript:exitpdfrd()">
+        <h1 class="nvtitle" id="nvbartitle">讲义内容：</h1>
+    </div>
     <p class="navbar-text text-center">正在打开讲义</p>
 
 </body>
@@ -177,15 +182,21 @@
 
 
     apiready = function () {
-        var pdflink= api.pageParam.pdfsource;
+        var pdftitle = api.pageParam.pdfnvtitle;
+        var x = document.getElementById("nvbartitle");
+        x.innerHTML = "讲义内容：《" + pdftitle + "》";
+        exitpdfrd = function () {
+            api.closeWin();
+        }
+        var pdflink = api.pageParam.pdfsource;
         console.log(pdflink)
         var pdfReader = api.require('pdfReader');
         pdfReader.openPdfView({
             rect: {
                 x: 0,
-                y: api.winHeight - 45,
+                y: 0,
                 w: 'auto',
-                h: 'auto'
+                h: api.winHeight - 25
             },
             path: pdflink,
             fixed: true
