@@ -178,6 +178,7 @@
 
     apiready = function () {
         var pdflink= api.pageParam.pdfsource;
+        console.log(pdflink)
         var pdfReader = api.require('pdfReader');
         pdfReader.openPdfView({
             rect: {
@@ -189,6 +190,7 @@
             path: pdflink,
             fixed: true
         }, function (ret) {
+            console.log(JSON.stringify(ret))
             var pageTotal = ret.totalPage
             api.toast({
                 msg: '共' + pageTotal + '页'
