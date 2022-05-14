@@ -206,22 +206,33 @@
         var pdflink = api.pageParam.pdfsource;
         console.log(pdflink)
         var pdfReader = api.require('pdfReader');
-        pdfReader.openPdfView({
-            rect: {
-                x: 0,
-                y: 66,
-                w: 'auto',
-                h: api.winHeight - 66
-            },
+        pdfReader.open({
             path: pdflink,
-            fixed: true
-        }, function (ret) {
-            console.log(JSON.stringify(ret))
-            var pageTotal = ret.totalPage
-            api.toast({
-                msg: '共' + pageTotal + '页'
-            })
+            hidden: {
+                print: true,
+                export: true,
+                bookmark: true,
+                email: true
+            },
+            showLoading: true
         });
+        /* var pdfReader = api.require('pdfReader');
+         pdfReader.openPdfView({
+             rect: {
+                 x: 0,
+                 y: 66,
+                 w: 'auto',
+                 h: api.winHeight - 66
+             },
+             path: pdflink,
+             fixed: true
+         }, function (ret) {
+             console.log(JSON.stringify(ret))
+             var pageTotal = ret.totalPage
+             api.toast({
+                 msg: '共' + pageTotal + '页'
+             })
+         });*/
     };
 </script>
 
