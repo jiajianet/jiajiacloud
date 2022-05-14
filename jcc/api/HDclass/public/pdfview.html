@@ -177,6 +177,7 @@
 
 
     apiready = function () {
+        var pdflink= api.pageParam.pdfsource;
         var pdfReader = api.require('pdfReader');
         pdfReader.openPdfView({
             rect: {
@@ -185,7 +186,7 @@
                 w: 'auto',
                 h: 'auto'
             },
-            path: './x.pdf',
+            path: pdflink,
             fixed: true
         }, function (ret) {
             var pageTotal = ret.totalPage
