@@ -146,6 +146,38 @@
         left: 23%;
         top: 14px;
     }
+
+
+    .ripple {
+        position: relative;
+
+        overflow: hidden;
+    }
+
+    .ripple:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+
+        background-image: radial-gradient(circle, #666 10%, transparent 10.01%);
+        background-repeat: no-repeat;
+        background-position: 50%;
+        transform: scale(10, 10);
+        opacity: 0;
+        transition: transform .3s, opacity .5s;
+    }
+
+    .ripple:active:after {
+        transform: scale(0, 0);
+        opacity: .3;
+
+        transition: 0s;
+    }
 </style>
 <link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css">
 <div id="lyrow">
@@ -163,22 +195,22 @@
     </div>
     <span class="text">本节课教你巧用Windows系统中键盘的快捷键！可以工作提升效率，节省时间。快来看看吧！</span>
     <div class="nav">
-        <div class="box">
+        <div class="box ripple">
             <img src="../../images/rotation.png" alt="">
             <p>旋转屏幕</p>
             <a href="JavaScript:rotateScr();"></a>
         </div>
-        <div class="box">
+        <div class="box ripple">
             <img src="../../images/pdf.png" alt="">
             <p>查看讲义</p>
             <a href="JavaScript:viewclasspdf();"></a>
         </div>
-        <div class="box">
+        <div class="box ripple">
             <img src="../../images/cut.png" alt="">
             <p>截屏</p>
             <a href="JavaScript:cutScreen();"></a>
         </div>
-        <div class="box">
+        <div class="box ripple">
             <img src="../../images/write.png" alt="">
             <p>随手记</p>
             <a href="JavaScript:handwriting();"></a>
