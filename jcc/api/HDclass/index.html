@@ -243,13 +243,15 @@
 		<script type="text/javascript" src="api/api.js"></script>
 		<script type="text/javascript">
 
+			apiready = function () {
+
 
 				api.refreshHeaderLoadDone();
 				setTimeout(function () {
-						api.hideProgress();
-					}, 1500);
+					api.hideProgress();
+				}, 1500);
 				Jnt = function () {
-					
+
 					api.openTabLayout({
 						name: 'jn',
 						url: './jiajianet/index.html',
@@ -311,7 +313,7 @@
 					orientation: 'auto'
 				});
 				api.setKeepScreenOn({ keepOn: true });
-				
+
 				Jnt = function () {
 					api.openTabLayout({
 						name: 'jn',
@@ -377,7 +379,7 @@
 
 
 
-
+			}
 		</script>
 </body>
 
