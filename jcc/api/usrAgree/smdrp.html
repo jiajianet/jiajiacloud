@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta http-equiv="Content-Language" content="zh-CN">
+    <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=gb2312">
+    <title>Smart Drop</title>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css" />
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+</body>
+
+
+<style>
+    /*--预设--*/
+    body {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    #lyrow,
+    #lyrow input,
+    #lyrow textarea {
+        font-size: 12px;
+        font-family: 'Microsoft YaHei', '微软雅黑', MicrosoftJhengHei, '华文细黑', STHeiti, MingLiu;
+    }
+
+    #lyrow {
+        height: 100vh;
+        width: 100vw;
+    }
+
+    #lyrow div {
+        min-height: 18px;
+    }
+
+    #lyrow input,
+    #lyrow textarea {
+        border: rgb(235, 235, 235) 1px solid;
+        border-radius: 3px;
+        padding: 5px 8px;
+        outline: 0;
+    }
+
+    #lyrow input:hover,
+    #lyrow textarea:hover {
+        border: 1px solid #6bc1f2;
+    }
+
+    /*--编辑--*/
+    #lyrow .bt {
+        width: auto;
+        height: 15%;
+        flex-direction: row;
+        display: flex !important;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0 0 0 5%;
+    }
+
+    #lyrow .bttex {
+        font-weight: bold;
+    }
+
+    #lyrow .text {
+        width: 95%;
+        height: 80%;
+        padding: 0 0 0 5%;
+    }
+
+    #lyrow .zwlic {
+        overflow-x: auto;
+        overflow-y: auto;
+        position: static;
+        flex-direction: row;
+        align-items: flex-start;
+        align-content: flex-start;
+        user-select: none;
+        white-space: pre-line;
+        text-align: justify;
+        vertical-align: text-top;
+        width: 90%;
+        max-width: 90%;
+        flex-wrap: wrap;
+        display: flex !important;
+        max-height: 100%;
+        height: 100%;
+    }
+</style>
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+<div id="lyrow">
+    <div class="bt">
+        <h1 class="bttex">贾贾云课堂智慧跌落提醒用户协议</h1>
+    </div>
+    <div class="text">
+        <span class="zwlic">更新时间：2022/06/06
+            <br>贾贾云课堂智慧跌落提醒功能可在手机发生摔落时提醒您，从而避免一些不必要的问题。在功能运行时，需要获取您的设备传感器数据，这些传感器数据仅用于分析设备运动状态，并且全部在本地运行，存储到内存中，应用退出后自动销毁，不会上传云端，不会收集任何信息。
+            <br>
+            <br>只有在贾贾云课堂处于运行状态时才能及时提醒
+            <br>我们已针对常见的手势动作进行了优化，尽量避免误判和产生不必要的提醒，但需要告知您，在某些未知的情况下可能会误触发提醒。
+            <br>使用此功能会监测手机传感器，略微增加耗电，如果不想使用可以在设置——智慧功能——智慧跌落提醒关闭即可
+            <br>此功能设置发生改动后重启应用才能生效
+            <br>继续使用此功能视为接受上述情况和本用户协议
+        </span>
+    </div>
+</div>
+<script type="text/javascript" src="../api/api.js"></script>
+<script type="text/javascript">
+    apiready = function () {
+
+        api.removeLaunchView({
+            animation: {
+                type: 'fade',
+                duration: 500
+            }
+        });
+
+
+    }
+</script>
+
+</html>

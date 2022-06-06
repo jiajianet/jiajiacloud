@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta http-equiv="Content-Language" content="zh-CN">
+    <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=gb2312">
+    <title>Smart EyeProtect</title>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css" />
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+</body>
+
+
+
+<style>
+    /*--预设--*/
+    body {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    #lyrow,
+    #lyrow input,
+    #lyrow textarea {
+        font-size: 12px;
+        font-family: 'Microsoft YaHei', '微软雅黑', MicrosoftJhengHei, '华文细黑', STHeiti, MingLiu;
+    }
+
+    #lyrow {
+        height: 100vh;
+        width: 100vw;
+    }
+
+    #lyrow div {
+        min-height: 18px;
+    }
+
+    #lyrow input,
+    #lyrow textarea {
+        border: rgb(235, 235, 235) 1px solid;
+        border-radius: 3px;
+        padding: 5px 8px;
+        outline: 0;
+    }
+
+    #lyrow input:hover,
+    #lyrow textarea:hover {
+        border: 1px solid #6bc1f2;
+    }
+
+    /*--编辑--*/
+    #lyrow .header {
+        padding: 5% 5% 2% 5%;
+        margin: auto auto auto auto;
+        overflow-x: auto;
+        overflow-y: auto;
+        position: static;
+        font-weight: bold;
+        user-select: none;
+    }
+
+    #lyrow .agreement {
+        padding: 5% 5% 0 5%;
+        margin: auto auto auto auto;
+        overflow-x: auto;
+        overflow-y: auto;
+        position: static;
+        user-select: none;
+        height: 90%;
+    }
+</style>
+<!--下载font-awesome.css图标包-->
+<!--https://www.58html.com/html/template/font-awesome.zip-->
+<link rel="stylesheet" href="https://www.58html.com/gui/css/font-awesome/css/font-awesome.css">
+<div id="lyrow">
+
+
+    <div class="header">
+        <h1>贾贾云课堂智慧护眼用户协议</h1>
+    </div>
+    <div class="agreement">
+        <span class="zwlic">更新时间：2022/06/06
+            <br>贾贾云课堂智慧护眼功能可在夜间（22:00-次日7:00）自动根据环境光强度调节手机屏幕亮度，防止光线过强或过暗对眼睛造成伤害。在功能运行时，需要获取您的传感器数据，这些数据仅用于分析环境光强度，并且全部在本地运行，存储到内存中，应用退出后自动销毁，不会上传云端，不会收集任何信息
+            <br>
+            <br>使用此功能应用需要获取修改系统设置的权限，用于修改设备全局亮度，不会获取和修改任何其他设置。
+            <br>只有在贾贾云课堂处于运行状态时才能进行调节，退出后自动还原设备原亮度
+            <br>我们已经尽可能避免因环境光亮度变化及设备传感器问题使屏幕不断闪烁的情况，但会因为遮挡设备光传感器，频繁移动设备或光源，设备传感器误差等因素造成屏幕闪烁。<font color="red"><h1>若感到不适，请立刻关闭贾贾云课堂智慧护眼功能。</h1></font>
+            <br>贾贾云课堂智慧护眼功能无法保证您的眼部不受任何损害，只能起到缓解眼部疲劳，减轻光线对眼部的刺激。我们对您眼部的任何损伤均不负任何责任
+            <br>若感到不适，请立刻关闭贾贾云课堂智慧护眼功能。
+            <br>
+            <br>继续使用此功能视为接受上述情况和本用户协议
+        </span>
+    </div>
+</div>
+<script type="text/javascript" src="../api/api.js"></script>
+<script type="text/javascript">
+    apiready = function () {
+
+        api.removeLaunchView({
+            animation: {
+                type: 'fade',
+                duration: 500
+            }
+        });
+
+
+
+    }
+</script>
+
+</html>
