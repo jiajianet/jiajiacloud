@@ -70,11 +70,11 @@
 				<header class="major">
 					<p>计算机</p>
 					<span class="date">首推课程</span>
-					<h2><a href="JavaScript:jn()">遇见计算机<br />
+					<h2><a href="JavaScript:Jnt()">遇见计算机<br />
 						</a></h2>
 					<p>我们在这里讲解计算机的基础知识，实用技巧等，由贾贾网络官方直接主讲</p>
 				</header>
-				<a href="JavaScript:jn()" class="image main"><img src="images/ComputerClass.png" alt="" /></a>
+				<a href="JavaScript:Jnt()" class="image main"><img src="images/ComputerClass.png" alt="" /></a>
 				<ul class="actions special">
 					<li><a href="JavaScript:Jnt()" class="button large">进入课程</a></li>
 				</ul>
@@ -247,9 +247,11 @@
 
 
 				api.refreshHeaderLoadDone();
+
 				setTimeout(function () {
 					api.hideProgress();
 				}, 1500);
+
 				Jnt = function () {
 
 					api.openTabLayout({
@@ -269,6 +271,7 @@
 						}
 					});
 				}
+
 				qxload = function () {
 					api.showProgress({
 						title: '加载课程中',
@@ -285,6 +288,7 @@
 					});
 					window.location.href = "ylindex.html";
 				}
+
 				api.addEventListener({
 					name: 'offline'
 				}, function (ret, err) {
@@ -312,26 +316,9 @@
 				api.setScreenOrientation({
 					orientation: 'auto'
 				});
+
 				api.setKeepScreenOn({ keepOn: true });
 
-				Jnt = function () {
-					api.openTabLayout({
-						name: 'jn',
-						url: './jiajianet/index.html',
-						title: '遇见计算机',
-						hideNavigationBar: false,
-						bgColor: "#fff",
-						bounces: true,
-						scrollEnabled: true,
-						navigationBar: {
-							background: "#009ad6",
-							shadow: "rgba(0,0,0,0)",
-							color: "#fff",
-							fontSize: 18,
-							hideBackButton: false
-						}
-					});
-				}
 				/*
 				yl = function(){
 				  api.openTabLayout({
