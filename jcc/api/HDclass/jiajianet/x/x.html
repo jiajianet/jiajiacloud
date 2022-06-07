@@ -301,26 +301,21 @@
         }
 
         handwriting = function () {
+
+            api.setScreenOrientation({
+                orientation: 'auto_portrait'
+            });
             api.setFullScreen({
                 fullScreen: true,
-                optNav: true
+                optNav: false
 
             });
-            api.openTabLayout({
-                name: 'cam',
-                url: 'widget://pages/main_cart/camera.html',
-                title: '随手拍',
-                hideNavigationBar: false,
-                bgColor: "#fff",
-                bounces: false,
-                navigationBar: {
-                    background: "#009ad6",
-                    shadow: "rgba(0,0,0,0)",
-                    color: "#fff",
-                    fontSize: 18,
-                    hideBackButton: false,
-                },
-            })
+            api.openWin({
+                name: 'vernote',
+                url: 'tools/NoteBoard/scrawl.html',
+            });
+
+
         }
 
         api.setNavBarAttr({
