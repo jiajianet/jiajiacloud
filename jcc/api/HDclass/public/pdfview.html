@@ -180,13 +180,18 @@
             font-weight: bold;
             font-size: 18px;
         }
+
+        .fixdownload {
+            right: 2%;
+            position: fixed;
+        }
     </style>
 </head>
 
 <body>
     <div class="nvbar">
-        <img src="http://www.58html.com/folder/imgs/202205/fcc568e8b11b1d457eb6181c542e1d07.png" width="32" height="32"
-            onclick="JavaScript:exitpdfrd()">
+        <img src="back.png" width="32" height="32" onclick="JavaScript:exitpdfrd()">
+        <img src="download.png" class="fixdownload" width="32px" height="32px" onclick="JavaScript:downloadpdf()">
         <h1 class="nvtitle" id="nvbartitle">讲义内容：</h1>
     </div>
     <p class="navbar-text text-center">正在打开讲义</p>
@@ -222,6 +227,54 @@
                 msg: '共' + pageTotal + '页'
             })
         });
+        var firstFramePath = api.pageParam.firstFrame
+        downloadpdf = function () {
+
+            var downloadManager = api.require('downloadManager');
+            downloadManager.enqueue({
+                url: pdflink,
+                savePath: 'fs://handoutDownload/' + pdftitle + '.pdf',
+                cache: true,
+                allowResume: true,
+                title: '讲义文件：《' + pdftitle + '》',
+                networkTypes: 'all',
+                iconPath: firstFramePath
+            }, function (ret, err) {
+                if (ret) {
+                    api.toast({
+                        msg:'下载已开始，可在更多——下载管理中查看进度'
+                    })
+                    console.log(JSON.stringify(ret));
+                } else {
+                    alert(JSON.stringify(err));
+                }
+            });
+/*
+            api.download({
+                url: pdflink,
+                report: true,
+                cache: true,
+                allowResume: true
+            }, function (ret, err) {
+                if (ret && 0 == ret.state) {
+                    var UIActionProgress = api.require('UIActionProgress');
+                    UIActionProgress.setData({
+                        data: {
+                            title: '正在执行操作（讲义下载）',
+                            msg: '下载PDF文件《' + pdftitle + '》',
+                            value: ret.percent
+                        }
+                    });
+                }
+                if (ret && 1 == ret.state) {
+                    var savePath = ret.savePath;
+                }
+            });
+            
+            */
+        }
+
+
     };
 </script>
 
