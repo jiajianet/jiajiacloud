@@ -230,6 +230,23 @@
 
         });
 
+
+        api.addEventListener({
+            name: 'viewappear'
+        }, function (ret, err) {
+            api.setFullScreen({
+                fullScreen: false,
+                optNav: false
+
+            });
+            api.setScreenOrientation({
+                orientation: 'auto_portrait'
+            });
+            api.setKeepScreenOn({
+                keepOn: true
+            });
+        });
+
         rotateScr = function () {
             var scrL = api.getGlobalData({
                 key: 'scrL'
