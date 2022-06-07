@@ -274,7 +274,7 @@
                 }, function (ret, err) {
                     if (ret && ret.status) {
                         api.toast({
-                            msg: '保存成功',
+                            msg: '截图已保存到相册',
                             location: 'middle',
                             duration: 2000
                         })
@@ -312,7 +312,7 @@
             });
             api.openWin({
                 name: 'vernote',
-                url: 'tools/NoteBoard/scrawl.html',
+                url: 'widget://pages/main_cart/tools/NoteBoard/scrawl.html',
             });
 
 
