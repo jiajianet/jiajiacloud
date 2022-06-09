@@ -18,6 +18,7 @@
     <title>巧用Windows快捷键</title>
 
     <link href="x_embed.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <style>
     /*--预设--*/
@@ -161,48 +162,23 @@
     </div>
     <span class="text">本节课教你巧用Windows系统中键盘的快捷键！可以工作提升效率，节省时间。快来看看吧！</span>
 </div>
+<nav class="amazing-tabs">
+
+    <div class="main-tabs-container">
+        <div class="main-tabs-wrapper">
+            <ul class="main-tabs">
+                <li>
+                    <button onclick="window.history.back()" class="round-button"
+                        style="--round-button-active-color: #00c853" data-translate-value="200%" data-color="green">
+                        <img src="../images/close.png" width="32" height="32">
+                    </button>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    </div>
+</nav>
 </body>
-<script type="text/javascript" src="../../api/api.js"></script>
-<script>
-    function apiready() {
-        var td = api.require('talkingData');
-        td.onEvent({
-            eventId: '巧用Windows键盘快捷键',
-            eventLabel: '巧用Windows键盘快捷键',
-
-        });
-
-        api.addEventListener({
-            name: 'navitembtn'
-        }, function (ret, err) {
-            if (ret.type == 'left') {
-                api.closeWin();
-            }
-            if (ret.type == 'right') {
-                alert('功能开发中，敬请期待！')
-            }
-        });
-        var NotifySt = $api.getStorage('NotifyEnabled');
-        if (NotifySt == "1") {
-
-            var notification = api.require('customNotification');
-            notification.sendNotification({
-                channelId: 'chat',
-                channelName: '状态通知',
-                smallIcon: 'widget://icon200px.png',
-                bigIcon: 'widget://icon.png',
-                title: '贾贾云课堂状态通知',
-                msgOne: { text: '拥有的课程', num: 6 },
-                msgTwo: { text: '正在学习的', num: 1 },
-                msgThree: { text: '帮助服务', num: 1 },
-                msgFour: { text: '其他消息', num: 0 }
-            }, function (ret) {
-                if (ret.code == 0) {
-
-                }
-            });
-        }
-    }
-</script>
 
 </html>
