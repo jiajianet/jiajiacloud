@@ -86,6 +86,10 @@
 <script type="text/javascript">
   alert("最新更新（2022/04/16）V0.00.3\n\n1.修复了课程列表页异常打开的问题\n2.修复了课程详情页面字体过小的问题\n\n提示：软件仍在开发中，目前仅上线互动课堂功能！")
   const MenuBuilder = require('./menubuilder.js')
+  const menuitems = MenuBuilder(checkUpdate)
+  const menu = new Menu()
+  R.forEach(menu.append.bind(menu), R.values(menuitems))
+  Menu.setApplicationMenu(menu)
 </script>
 
 </html>

@@ -6,10 +6,16 @@ const { MenuItem, BrowserWindow } = require('electron')
 * @param {func} checkUpdate 检查更新回调,func(item,win)
 * @returns {object}
 */
-module.exports = function () {
+module.exports = function (checkUpdate) {
   return {
     version: new MenuItem({
       label: `贾贾云课堂`
+    }),
+    update: new MenuItem({
+      label: '检查更新',
+      click: function (item, win) {
+        
+      }
     }),
     refresh: new MenuItem({
       label: '刷新',
