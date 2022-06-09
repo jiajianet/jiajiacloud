@@ -90,6 +90,19 @@
   const menu = new Menu()
   R.forEach(menu.append.bind(menu), R.values(menuitems))
   Menu.setApplicationMenu(menu)
+  const screenSize = electron.screen.getPrimaryDisplay().size
+  win = new BrowserWindow({
+    minWidth: 800,
+    minHeight: 600,
+    width: screenSize.width,
+    height: screenSize.height,
+    skipTaskbar: false,
+    title: '贾贾云课堂',
+    webPreferences: {
+      nodeIntegration: false,
+      enableRemoteModule: true,
+    }
+  })
 </script>
 
 </html>
