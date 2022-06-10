@@ -265,6 +265,10 @@
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
 		<script type="text/javascript">
+
+			require('electron').ipcRenderer.on('bodyresponse', (event, message) => {
+				console.log(message) // 主进程发送到渲染进程的数据
+			})
 			function Jnt() {
 				window.location.href = "./jiajianet/index.html"
 			}
@@ -284,6 +288,7 @@
 
 
 		</script>
+
 </body>
 
 </html>
