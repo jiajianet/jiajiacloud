@@ -12,7 +12,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="stylesheet" href="assets/css/style.css">
-	<link href="../dialog/dialog.css" rel="stylesheet" />
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
@@ -30,9 +29,12 @@
 				<i class="iconfont icon-category"></i>
 			</div>
 			<div class="tab middle">
-				<div style="--angle:-45deg" class="add" onclick="JavaScript:showDialog()"><i class="iconfont icon-photo"></i></div>
-				<div style="--angle:0deg" class="add" onclick="JavaScript:showDialog()"><i class="iconfont icon-doc"></i></div>
-				<div style="--angle:45deg" class="add" onclick="JavaScript:showDialog()"><i class="iconfont icon-video"></i></div>
+				<div style="--angle:-45deg" class="add" onclick="JavaScript:showDialog()"><i
+						class="iconfont icon-photo"></i></div>
+				<div style="--angle:0deg" class="add" onclick="JavaScript:showDialog()"><i
+						class="iconfont icon-doc"></i></div>
+				<div style="--angle:45deg" class="add" onclick="JavaScript:showDialog()"><i
+						class="iconfont icon-video"></i></div>
 			</div>
 			<div class="tab" onclick="JavaScript:showDialog()">
 				<i class="iconfont icon-cart"></i>
@@ -290,9 +292,7 @@
 				}, 60 * 1.5);
 			}
 			function showDialog() {
-				document.getElementById('dialog').className = "dialog-box";
-				document.querySelector('#dialog .dialog-mask').className = 'dialog-mask show';
-				document.querySelector('#dialog .dialog-wrap').className = 'dialog-wrap dialog-container show';
+				alert("功能开发中，敬请期待")
 			}
 			function Jnt() {
 				window.location.href = "./jiajianet/index.html"
