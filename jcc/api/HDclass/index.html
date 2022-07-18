@@ -252,6 +252,81 @@
 					api.hideProgress();
 				}, 1500);
 
+
+				var appNowVersion = api.appVersion;
+				if (appNowVersion !== "2.2.0") {
+					var dialogBox = api.require('dialogBox');
+					dialogBox.raffle({
+						texts: {
+							title: '版本过期',
+							mainText: '此版本存在安全问题，为了保障您的权益，请升级至最新版本（2.2.0）',
+							subText: '当前版本：' + appNowVersion + '，最新版本：2.2.0',
+							rightTitle: '转到官网下载'
+						},
+						styles: {
+
+							bg: '#fff',
+							w: 300,
+							corner: 16,
+							title: {
+								size: 14,
+								color: '#000',
+								marginT: 20
+							},
+							icon: {
+								marginT: 20,
+								w: 40,
+								h: 40,
+								iconPath: 'widget://pages/main_cart/images/touch.png'
+							},
+							main: {
+								marginT: 20,
+								color: '#636363',
+								size: 13
+							},
+							sub: {
+								marginT: 8,
+								color: '#999999',
+								size: 12
+							},
+
+							right: {
+								marginB: 7,
+								marginL: 85,
+								w: 130,
+								h: 35,
+								corner: 2,
+								bg: '#fff',
+								color: '#007FFF',
+								size: 12
+							}
+						},
+
+					}, function (ret, err) {
+						if (ret) {
+							api.openApp({
+								androidPkg: 'android.intent.action.VIEW',
+								mimeType: 'text/html',
+								uri: 'https://jiajiaclass.tk'
+							}, function (ret, err) {
+								api.toast({
+									msg: '请在浏览器内下载安装',
+									duration: 2000,
+									location: 'middle'
+								});
+							});
+						} else {
+							alert("出错了");
+							api.closeWidget(
+								{
+									id: 'A6167225609603',
+									silent: true
+								})
+						}
+					});
+				}
+
+
 				Jnt = function () {
 
 					api.openTabLayout({
